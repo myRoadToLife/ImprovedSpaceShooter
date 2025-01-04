@@ -1,3 +1,4 @@
+using System.Collections;
 using Configs;
 using UnityEngine;
 using UnityEngine.InputSystem.EnhancedTouch;
@@ -12,17 +13,17 @@ namespace Character
         private MoveLimit _moveLimit;
         private Camera _mainCamera;
         private Vector3 _offsetPosition;
+        private Coroutine _setBorders;
 
-        [Inject]
-        public void Construct(MoveLimit moveLimit)
+        [Inject] public void Construct(MoveLimit moveLimit)
         {
             _moveLimit = moveLimit;
         }
-        
+
         private void Start()
         {
             _mainCamera = Camera.main;
-            _moveLimit.Initialize(_mainCamera);
+            _setBorders = StartCoroutine(SetBorders());
         }
 
         private void Update()
@@ -56,6 +57,12 @@ namespace Character
 
                     break;
             }
+        }
+
+        private IEnumerator SetBorders()
+        {
+            yield return new WaitForSeconds(0.5f);
+            _moveLimit.Initialize(_mainCamera);
         }
 
         private void OnEnable() => EnhancedTouchSupport.Enable();
