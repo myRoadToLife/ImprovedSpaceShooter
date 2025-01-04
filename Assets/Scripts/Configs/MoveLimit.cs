@@ -10,15 +10,12 @@ namespace Configs
         public float MaxDown;
         public float MaxUp;
 
-        private Vector3 _offset;
-
         private float _maxLeft;
         private float _maxRight;
         private float _maxDown;
         private float _maxUp;
 
-
-        public void Initialize( Camera mainCam )
+        public void Initialize(Camera mainCam)
         {
             mainCam = Camera.main;
             _maxLeft = mainCam.ViewportToWorldPoint(new Vector2(MaxLeft, 0)).x;
