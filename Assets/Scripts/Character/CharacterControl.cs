@@ -1,5 +1,7 @@
+using Configs;
 using UnityEngine;
 using UnityEngine.InputSystem.EnhancedTouch;
+using Zenject;
 using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
 using TouchPhase = UnityEngine.InputSystem.TouchPhase;
 
@@ -7,12 +9,20 @@ namespace Character
 {
     public class CharacterControl : MonoBehaviour
     {
+        private MoveLimit _moveLimit;
         private Camera _mainCamera;
         private Vector3 _offsetPosition;
 
+        [Inject]
+        public void Construct(MoveLimit moveLimit)
+        {
+            _moveLimit = moveLimit;
+        }
+        
         private void Start()
         {
             _mainCamera = Camera.main;
+            _moveLimit.Initialize(_mainCamera);
         }
 
         private void Update()
@@ -37,6 +47,13 @@ namespace Character
                 case TouchPhase.Moved:
                 case TouchPhase.Stationary:
                     transform.position = new Vector3(touchPosition.x - _offsetPosition.x, touchPosition.y - _offsetPosition.y, 0);
+
+                    transform.position = new Vector3(
+                        Mathf.Clamp(transform.position.x,
+                            _moveLimit.GetMaxLeft(), _moveLimit.GetMaxRight()),
+                        Mathf.Clamp(transform.position.y,
+                            _moveLimit.GetMaxDown(), _moveLimit.GetMaxUp()), 0);
+
                     break;
             }
         }

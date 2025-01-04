@@ -132,8 +132,9 @@ GameObject:
   m_Component:
   - component: {fileID: 222404577}
   - component: {fileID: 222404576}
+  - component: {fileID: 222404578}
   m_Layer: 0
-  m_Name: System
+  m_Name: '[System]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -152,7 +153,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scriptableObjectInstallers: []
-  _monoInstallers: []
+  _monoInstallers:
+  - {fileID: 222404578}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -185,6 +187,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &222404578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 222404575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d43c83a2f6b473995b24c56200073a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &305665954
 GameObject:
   m_ObjectHideFlags: 0
@@ -1438,6 +1452,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 519420032}
   - {fileID: 619394802}
+  - {fileID: 1284259615}
   - {fileID: 222404577}
   - {fileID: 1523933046}
-  - {fileID: 1284259615}
