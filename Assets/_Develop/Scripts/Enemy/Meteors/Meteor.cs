@@ -10,26 +10,26 @@ namespace _Develop.Scripts.Enemy.Meteors
     [RequireComponent(typeof(Rigidbody2D))]
     public abstract class Meteor : MonoBehaviour, IDamageable, ISequence
     {
-        protected Stats Stats;
-        protected byte Damage;
-        protected Health Health;
-        protected Rigidbody2D Rb2D;
+        protected Stats _stats;
+        protected byte _damage;
+        protected Health _health;
+        protected Rigidbody2D _rb2D;
 
         [Inject] public void Construct(Stats stats)
         {
-            Stats = stats;
-            Initialize(Stats);
+            _stats = stats;
+            Initialize(_stats);
         }
 
         protected abstract void Initialize(Stats stats);
         
         public void TakeDamage(byte damage)
         {
-            Health.CurrentHealth = (byte)Mathf.Clamp(Health.CurrentHealth - damage, 0, Health.CurrentHealth);
+            _health.CurrentHealth = (byte)Mathf.Clamp(_health.CurrentHealth - damage, 0, _health.CurrentHealth);
 
             SequenceHurt();
 
-            if (Health.CurrentHealth == 0)
+            if (_health.CurrentHealth == 0)
             {
                 SequenceDeath();
             }
