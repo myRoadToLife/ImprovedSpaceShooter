@@ -10,10 +10,17 @@ namespace _Develop.Scripts.Enemy.Meteors
     [RequireComponent(typeof(Rigidbody2D))]
     public abstract class Meteor : MonoBehaviour, IDamageable, ISequence
     {
+<<<<<<< HEAD
         public Stats Stats{ get; protected set;}
         public byte Damage{ get; protected set;}
         public Health Health{ get; protected set;}
         public Rigidbody2D Rb2D{ get; protected set;}
+=======
+        protected Stats Stats;
+        protected byte Damage;
+        protected Health Health;
+        protected Rigidbody2D Rb2D;
+>>>>>>> parent of 651f2bc (Update code style)
 
         [Inject] public void Construct(Stats stats)
         {
