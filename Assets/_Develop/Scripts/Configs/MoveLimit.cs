@@ -1,8 +1,8 @@
 using UnityEngine;
 
-namespace Configs
+namespace _Develop.Scripts.Configs
 {
-    [CreateAssetMenu(fileName = "RestrictionMovement", menuName = "ScriptableObject/RestrictionMovement")]
+    [CreateAssetMenu(menuName = "Configs/ScriptableObject/RestrictionMovement")]
     public class MoveLimit : ScriptableObject
     {
         public float MaxLeft;

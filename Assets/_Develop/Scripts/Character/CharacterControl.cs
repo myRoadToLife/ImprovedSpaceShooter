@@ -1,20 +1,20 @@
 using System.Collections;
-using Configs;
+using _Develop.Scripts.Configs;
 using UnityEngine;
 using UnityEngine.InputSystem.EnhancedTouch;
 using Zenject;
 using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
 using TouchPhase = UnityEngine.InputSystem.TouchPhase;
 
-namespace Character
+namespace _Develop.Scripts.Character
 {
-    public class CharacterControl : MonoBehaviour
+    public class CharacterControl : MonoBehaviour, ICharacter
     {
         private MoveLimit _moveLimit;
         private Camera _mainCamera;
         private Vector3 _offsetPosition;
         private Coroutine _setBorders;
-
+        
         [Inject] public void Construct(MoveLimit moveLimit)
         {
             _moveLimit = moveLimit;
