@@ -6,14 +6,15 @@ namespace _Develop.Scripts.Enemy.Meteors
 {
     public class Weak : Meteor
     {
+        private void Update() => transform.Translate(0, -1 * Stats.WeakSpeed * Time.deltaTime, 0);
+
+        public override void OnBecameInvisible() => Destroy(gameObject);
+
         protected override void Initialize(Stats stats)
         {
             Damage = Stats.WeakDamage;
             Health = new Health(Stats.WeakHealth);
-
-            Rb2D = GetComponent<Rigidbody2D>();
             Stats.WeakSpeed = Random.Range(Stats.WeakMinSpeed, Stats.WeakMaxSpeed);
-            Rb2D.velocity = Vector2.down * Stats.WeakSpeed;
         }
     }
 }

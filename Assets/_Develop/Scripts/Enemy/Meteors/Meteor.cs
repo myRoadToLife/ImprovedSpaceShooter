@@ -1,3 +1,4 @@
+using System;
 using _Develop.Scripts.Character;
 using _Develop.Scripts.Common;
 using _Develop.Scripts.Common.Interfaces;
@@ -7,20 +8,18 @@ using Zenject;
 
 namespace _Develop.Scripts.Enemy.Meteors
 {
-    [RequireComponent(typeof(Rigidbody2D))]
     public abstract class Meteor : MonoBehaviour, IDamageable, ISequence
     {
         public Stats Stats{ get; protected set;}
         public byte Damage{ get; protected set;}
         public Health Health{ get; protected set;}
-        public Rigidbody2D Rb2D{ get; protected set;}
 
         [Inject] public void Construct(Stats stats)
         {
             Stats = stats;
             Initialize(Stats);
         }
-
+        
         protected abstract void Initialize(Stats stats);
         
         public void TakeDamage(byte damage)
@@ -52,5 +51,8 @@ namespace _Develop.Scripts.Enemy.Meteors
         {
             Destroy(gameObject);
         }
+
+        public abstract void OnBecameInvisible();
+
     }
 }

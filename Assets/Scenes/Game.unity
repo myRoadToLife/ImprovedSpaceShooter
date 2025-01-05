@@ -1090,6 +1090,55 @@ Transform:
   m_Children: []
   m_Father: {fileID: 878380413}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1095517595
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1095517597}
+  - component: {fileID: 1095517596}
+  m_Layer: 0
+  m_Name: SpawnerMeteor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1095517596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1095517595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2373baefc6248a46adf0fd8332078be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _meteorsPrefabs:
+  - {fileID: 3511512911183807400, guid: 1541c2ed785ee0049bbbee5271fee868, type: 3}
+  - {fileID: 5302624176483774124, guid: de86a801b014cd946884d0e1681ceb9c, type: 3}
+  - {fileID: 8813452486990306165, guid: 50c7d6a21a73dae44a9301e778346c6c, type: 3}
+  _timeForSpawn: 2
+--- !u!4 &1095517597
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1095517595}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1142477630
 GameObject:
   m_ObjectHideFlags: 3
@@ -1906,3 +1955,4 @@ SceneRoots:
   - {fileID: 1284259615}
   - {fileID: 222404577}
   - {fileID: 1523933046}
+  - {fileID: 1095517597}
