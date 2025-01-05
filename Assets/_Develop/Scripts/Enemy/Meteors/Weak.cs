@@ -8,12 +8,12 @@ namespace _Develop.Scripts.Enemy.Meteors
     {
         protected override void Initialize(Stats stats)
         {
-            _damage = _stats.WeakDamage;
-            _health = new Health(_stats.WeakHealth);
+            Damage = Stats.WeakDamage;
+            Health = new Health(Stats.WeakHealth);
 
-            _rb2D = GetComponent<Rigidbody2D>();
-            _stats.WeakSpeed = Random.Range(_stats.WeakMinSpeed, _stats.WeakMaxSpeed);
-            _rb2D.velocity = Vector2.down * _stats.WeakSpeed;
+            Rb2D = GetComponent<Rigidbody2D>();
+            Stats.WeakSpeed = Random.Range(Stats.WeakMinSpeed, Stats.WeakMaxSpeed);
+            Rb2D.velocity = Vector2.down * Stats.WeakSpeed;
         }
     }
 }
