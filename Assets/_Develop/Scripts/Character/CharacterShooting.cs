@@ -11,8 +11,9 @@ namespace _Develop.Scripts.Character
 
         [SerializeField] private float _intervalShoot;
 
-        private bool _isCanShoot = true;
         [Inject] private DiContainer _container;
+        
+        private bool _isCanShoot = true;
 
         private void Start()
         {
