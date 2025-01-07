@@ -10,12 +10,11 @@ namespace _Develop.Scripts.Character
         private LaserBulletSO _config;
         private Meteor _meteor;
 
-        [Inject]
-        private void Construct(LaserBulletSO config)
+        [Inject] private void Construct(LaserBulletSO config)
         {
             _config = config;
         }
-        
+
         private void Update()
         {
             transform.position += Vector3.up * (_config.Speed * Time.deltaTime);
@@ -29,7 +28,7 @@ namespace _Develop.Scripts.Character
             {
                 meteor.TakeDamage(_config.Damage);
             }
-            
+
             Destroy(gameObject);
         }
 

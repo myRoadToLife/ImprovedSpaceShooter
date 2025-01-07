@@ -11,7 +11,7 @@ namespace _Develop.Scripts.Enemy.Meteors
     public abstract class Meteor : MonoBehaviour, IDamageable, ISequence
     {
         public StatsMeteorSO StatsMeteorSo { get; private set; }
-        public byte Damage { get; protected set; }
+        public float Damage { get; protected set; }
         public Health HealthValue { get; protected set; }
 
         private CharacterHealth _characterHealth;
@@ -36,7 +36,7 @@ namespace _Develop.Scripts.Enemy.Meteors
             
         }
 
-        public void TakeDamage(byte damage)
+        public void TakeDamage(float damage)
         {
             HealthValue.CurrentHealth = (byte)Mathf.Clamp(HealthValue.CurrentHealth - damage, 0, HealthValue.CurrentHealth);
             

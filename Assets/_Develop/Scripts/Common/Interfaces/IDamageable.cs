@@ -2,6 +2,6 @@ namespace _Develop.Scripts.Enemy
 {
     public interface IDamageable
     {
-        void TakeDamage(byte damage);
+        void TakeDamage(float damage);
     }
 }

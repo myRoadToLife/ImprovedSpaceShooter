@@ -1,4 +1,5 @@
 using _Develop.Scripts.Character;
+using _Develop.Scripts.Character.UI;
 using _Develop.Scripts.Configs;
 using UnityEngine;
 using Zenject;
@@ -8,6 +9,7 @@ namespace _Develop.Scripts.Installers
     public sealed class SceneInstaller : MonoInstaller
     {
         CharacterHealth _characterHealth;
+        HealthBarView _healthBarView;
         public override void InstallBindings()
         {
             MoveLimitSO moveLimitSo = Resources.Load<MoveLimitSO>("Configs/MoveLimit");
@@ -23,6 +25,8 @@ namespace _Develop.Scripts.Installers
             Container.Bind<CharacterStatsSO>().FromInstance(characterStatsSO).AsSingle();
             
             Container.Bind<CharacterHealth>().FromInstance(_characterHealth).AsSingle();
+            
+            Container.Bind<HealthBarView>().FromComponentInHierarchy(_healthBarView).AsSingle();
         }
     }
 }

@@ -2,15 +2,14 @@ namespace _Develop.Scripts.Common
 {
     public class Health
     {
-        public byte CurrentHealth { get; set; }
+        public float CurrentHealth { get; set; }
+        public float MaxHealth { get; private set; }
 
-        private byte _maxHealth;
 
-        public Health(byte maxHealth)
+        public Health(float maxHealth)
         {
-            _maxHealth = maxHealth;
-            CurrentHealth = maxHealth;
+            MaxHealth = maxHealth;
+            CurrentHealth = MaxHealth;
         }
-        
     }
 }
