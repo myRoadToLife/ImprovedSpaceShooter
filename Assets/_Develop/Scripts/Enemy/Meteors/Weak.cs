@@ -6,23 +6,24 @@ namespace _Develop.Scripts.Enemy.Meteors
 {
     public class Weak : Meteor
     {
-        [SerializeField] private float _rotateSpeed;
-
+        [SerializeField]private int _rotateSpeed;
+        private float _moveSpeed;
+        
         private void Update() => MoveAndRotate();
 
         private void MoveAndRotate()
         {
-            transform.position += Vector3.down * (Stats.WeakSpeed * Time.deltaTime);
+            transform.position += Vector3.down * (_moveSpeed * Time.deltaTime);
             transform.Rotate(0, 0, _rotateSpeed * Time.deltaTime, Space.Self);
         }
 
         public override void OnBecameInvisible() => Destroy(gameObject);
 
-        protected override void Initialize(Stats stats)
+        protected override void Initialize(StatsMeteorSO statsMeteorSo)
         {
-            Damage = Stats.WeakDamage;
-            Health = new Health(Stats.WeakHealth);
-            Stats.WeakSpeed = Random.Range(Stats.WeakMinSpeed, Stats.WeakMaxSpeed);
+            Damage = StatsMeteorSo.WeakDamage;
+            Health = new Health(StatsMeteorSo.WeakHealth);
+            _moveSpeed = Random.Range(StatsMeteorSo.WeakMinSpeed, StatsMeteorSo.WeakMaxSpeed);
         }
     }
 }

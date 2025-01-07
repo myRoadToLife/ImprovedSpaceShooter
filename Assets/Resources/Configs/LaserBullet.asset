@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7785294522b86440ba06f1b5777ca25, type: 3}
-  m_Name: MoveLimit
+  m_Script: {fileID: 11500000, guid: 60e6fc8a17ee4a9bb62bf44a28093a2a, type: 3}
+  m_Name: LaserBullet
   m_EditorClassIdentifier: 
-  _maxLeftValue: 0.05
-  _maxRightValue: 0.95
-  _maxDownValue: 0.05
-  _maxUpValue: 0.9
+  <Damage>k__BackingField: 2
+  <Speed>k__BackingField: 15

@@ -8,11 +8,14 @@ namespace _Develop.Scripts.Installers
     {
         public override void InstallBindings()
         {
-            MoveLimit moveLimit = Resources.Load<MoveLimit>("Configs/MoveLimit");
-            Container.Bind<MoveLimit>().FromInstance(moveLimit).AsSingle();
+            MoveLimitSO moveLimitSo = Resources.Load<MoveLimitSO>("Configs/MoveLimit");
+            Container.Bind<MoveLimitSO>().FromInstance(moveLimitSo).AsSingle();
             
-            Stats stats = Resources.Load<Stats>("Configs/MeteorStats");
-            Container.Bind<Stats>().FromInstance(stats).AsSingle();
+            StatsMeteorSO statsMeteorSo = Resources.Load<StatsMeteorSO>("Configs/MeteorStats");
+            Container.Bind<StatsMeteorSO>().FromInstance(statsMeteorSo).AsSingle();
+            
+            LaserBulletSO laserBulletSo = Resources.Load<LaserBulletSO>("Configs/LaserBullet");
+            Container.Bind<LaserBulletSO>().FromInstance(laserBulletSo).AsSingle();
         }
     }
 }

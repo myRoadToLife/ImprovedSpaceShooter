@@ -1090,6 +1090,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 878380413}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1082655275
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1082655276}
+  m_Layer: 0
+  m_Name: BasicShootingPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1082655276
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1082655275}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.806, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1523933046}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1095517595
 GameObject:
   m_ObjectHideFlags: 0
@@ -1123,7 +1154,7 @@ MonoBehaviour:
   - {fileID: 3511512911183807400, guid: 1541c2ed785ee0049bbbee5271fee868, type: 3}
   - {fileID: 5302624176483774124, guid: de86a801b014cd946884d0e1681ceb9c, type: 3}
   - {fileID: 8813452486990306165, guid: 50c7d6a21a73dae44a9301e778346c6c, type: 3}
-  _timeForSpawn: 2
+  _timeForSpawn: 1.5
 --- !u!4 &1095517597
 Transform:
   m_ObjectHideFlags: 0
@@ -1491,6 +1522,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1523933046}
   - component: {fileID: 1523933047}
+  - component: {fileID: 1523933050}
   - component: {fileID: 1523933048}
   - component: {fileID: 1523933049}
   m_Layer: 0
@@ -1514,6 +1546,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1744535592}
+  - {fileID: 1082655276}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1523933047
@@ -1584,7 +1617,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1611,6 +1644,21 @@ PolygonCollider2D:
       - {x: 0.24445218, y: 0.09486246}
       - {x: 0.23030615, y: 0.35885638}
   m_UseDelaunayMesh: 0
+--- !u!114 &1523933050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1523933045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7d01a01a3906c04f9b94d804a9e8a79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _laserBulletPrefab: {fileID: 1804277199266048475, guid: 5393092235fc5644e9990fbe0fffdc0f, type: 3}
+  _basicShootingPoint: {fileID: 1082655276}
+  _intervalShoot: 0.4
 --- !u!1 &1546287888
 GameObject:
   m_ObjectHideFlags: 0

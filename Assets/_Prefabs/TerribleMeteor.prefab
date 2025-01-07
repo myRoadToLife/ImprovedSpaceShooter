@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5357993429085631789}
   - component: {fileID: 5302624176483774124}
-  - component: {fileID: 2779427394937775199}
+  - component: {fileID: 7010342804984984321}
   - component: {fileID: 6155836435698690342}
   - component: {fileID: 1672550664348482654}
   m_Layer: 0
@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rotateSpeed: 100
---- !u!50 &2779427394937775199
+--- !u!50 &7010342804984984321
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -105,7 +105,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

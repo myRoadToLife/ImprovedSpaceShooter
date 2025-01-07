@@ -10,14 +10,14 @@ namespace _Develop.Scripts.Character
 {
     public class CharacterControl : MonoBehaviour, ICharacter
     {
-        private MoveLimit _moveLimit;
+        private MoveLimitSO _moveLimitSo;
         private Camera _mainCamera;
         private Vector3 _offsetPosition;
         private Coroutine _setBorders;
         
-        [Inject] public void Construct(MoveLimit moveLimit)
+        [Inject] public void Construct(MoveLimitSO moveLimitSo)
         {
-            _moveLimit = moveLimit;
+            _moveLimitSo = moveLimitSo;
         }
 
         private void Start()
@@ -51,9 +51,9 @@ namespace _Develop.Scripts.Character
 
                     transform.position = new Vector3(
                         Mathf.Clamp(transform.position.x,
-                            _moveLimit.GetMaxLeft(), _moveLimit.GetMaxRight()),
+                            _moveLimitSo.GetMaxLeft(), _moveLimitSo.GetMaxRight()),
                         Mathf.Clamp(transform.position.y,
-                            _moveLimit.GetMaxDown(), _moveLimit.GetMaxUp()), 0);
+                            _moveLimitSo.GetMaxDown(), _moveLimitSo.GetMaxUp()), 0);
 
                     break;
             }
@@ -62,7 +62,7 @@ namespace _Develop.Scripts.Character
         private IEnumerator SetBorders()
         {
             yield return new WaitForSeconds(0.5f);
-            _moveLimit.Initialize(_mainCamera);
+            _moveLimitSo.Initialize(_mainCamera);
         }
 
         private void OnEnable() => EnhancedTouchSupport.Enable();
