@@ -1,12 +1,10 @@
-using System;
 using System.Collections;
-using _Develop.Scripts.Configs;
 using _Develop.Scripts.Enemy.Meteors;
 using UnityEngine;
 using Zenject;
 using Random = UnityEngine.Random;
 
-namespace _Develop.Scripts.Common
+namespace _Develop.Scripts.Common.Spawners
 {
     public class SpawnerMeteors : MonoBehaviour
     {
@@ -16,35 +14,40 @@ namespace _Develop.Scripts.Common
         [Inject] private DiContainer _container;
 
         private Camera _camera;
-        private float _timer;
         private float _maxLeftPosX;
         private float _maxRightPosX;
         private float _maxPosY;
 
+        private bool _isSpawning = true;
+
         private void Start()
         {
             _camera = Camera.main;
+            
             StartCoroutine(SetBorders());
+            StartCoroutine(SpawnMeteors());
         }
 
-        private void Update()
+        IEnumerator SpawnMeteors()
         {
-            _timer += Time.deltaTime;
-
-            if (_timer > _timeForSpawn)
+            while (_isSpawning)
             {
+                yield return new WaitForSeconds(_timeForSpawn);
+
                 Meteor meteor = _meteorsPrefabs[Random.Range(0, _meteorsPrefabs.Length)];
                 Vector3 position = new Vector3(Random.Range(_maxLeftPosX, _maxRightPosX), _maxPosY, -5);
                 Quaternion rotation = Quaternion.identity;
 
                 _container.InstantiatePrefab(meteor, position, rotation, null);
-                _timer = 0;
             }
         }
+        
 
         private IEnumerator SetBorders()
         {
-            yield return new WaitForSecondsRealtime(0.4f);
+            float timeForSet = 0.4f;
+            
+            yield return new WaitForSecondsRealtime(timeForSet);
 
             _maxLeftPosX = _camera.ViewportToWorldPoint(new Vector2(0.05f, 0)).x;
             _maxRightPosX = _camera.ViewportToWorldPoint(new Vector2(0.95f, 0)).x;

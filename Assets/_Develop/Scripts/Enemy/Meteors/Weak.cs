@@ -6,7 +6,15 @@ namespace _Develop.Scripts.Enemy.Meteors
 {
     public class Weak : Meteor
     {
-        private void Update() => transform.Translate(0, -1 * Stats.WeakSpeed * Time.deltaTime, 0);
+        [SerializeField] private float _rotateSpeed;
+
+        private void Update() => MoveAndRotate();
+
+        private void MoveAndRotate()
+        {
+            transform.position += Vector3.down * (Stats.WeakSpeed * Time.deltaTime);
+            transform.Rotate(0, 0, _rotateSpeed * Time.deltaTime, Space.Self);
+        }
 
         public override void OnBecameInvisible() => Destroy(gameObject);
 
