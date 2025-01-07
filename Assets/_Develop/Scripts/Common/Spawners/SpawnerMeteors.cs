@@ -11,18 +11,20 @@ namespace _Develop.Scripts.Common.Spawners
         [SerializeField] private Meteor[] _meteorsPrefabs;
         [SerializeField] private float _timeForSpawn;
 
-        [Inject] private DiContainer _container;
-
+        private DiContainer _container;
         private Camera _camera;
+        
         private float _maxLeftPosX;
         private float _maxRightPosX;
         private float _maxPosY;
 
         private bool _isSpawning = true;
 
-        private void Start()
+        [Inject]
+        public void Construct(DiContainer container, Camera camera)
         {
-            _camera = Camera.main;
+            _container = container;
+            _camera = camera;
             
             StartCoroutine(SetBorders());
             StartCoroutine(SpawnMeteors());
@@ -41,13 +43,10 @@ namespace _Develop.Scripts.Common.Spawners
                 _container.InstantiatePrefab(meteor, position, rotation, null);
             }
         }
-        
 
         private IEnumerator SetBorders()
         {
-            float timeForSet = 0.4f;
-            
-            yield return new WaitForSecondsRealtime(timeForSet);
+            yield return new WaitForEndOfFrame();
 
             _maxLeftPosX = _camera.ViewportToWorldPoint(new Vector2(0.05f, 0)).x;
             _maxRightPosX = _camera.ViewportToWorldPoint(new Vector2(0.95f, 0)).x;

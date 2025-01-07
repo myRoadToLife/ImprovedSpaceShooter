@@ -15,17 +15,14 @@ namespace _Develop.Scripts.Character
         private Vector3 _offsetPosition;
         private Coroutine _setBorders;
         
-        [Inject] public void Construct(MoveLimitSO moveLimitSo)
+        [Inject] public void Construct(MoveLimitSO moveLimitSo, Camera mainCamera)
         {
             _moveLimitSo = moveLimitSo;
-        }
-
-        private void Start()
-        {
-            _mainCamera = Camera.main;
+            _mainCamera = mainCamera;
+            
             _setBorders = StartCoroutine(SetBorders());
         }
-
+        
         private void Update()
         {
             HandleTouchInput();

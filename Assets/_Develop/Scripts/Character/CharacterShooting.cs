@@ -11,14 +11,17 @@ namespace _Develop.Scripts.Character
 
         [SerializeField] private float _intervalShoot;
 
-        [Inject] private DiContainer _container;
-        
+        private DiContainer _container;
+
         private bool _isCanShoot = true;
 
-        private void Start()
+        [Inject] public void Construct(DiContainer container)
         {
+            _container = container;
+            
             StartCoroutine(IntervalShooting());
         }
+        
 
         IEnumerator IntervalShooting()
         {

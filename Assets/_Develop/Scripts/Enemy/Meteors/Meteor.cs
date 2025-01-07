@@ -2,6 +2,7 @@ using _Develop.Scripts.Character;
 using _Develop.Scripts.Common;
 using _Develop.Scripts.Common.Interfaces;
 using _Develop.Scripts.Configs;
+using _Develop.Scripts.VFX;
 using UnityEngine;
 using Zenject;
 
@@ -13,14 +14,21 @@ namespace _Develop.Scripts.Enemy.Meteors
         public StatsMeteorSO StatsMeteorSo { get; private set; }
         public float Damage { get; protected set; }
         public Health HealthValue { get; protected set; }
-
+        
         private CharacterHealth _characterHealth;
-
-        [Inject] public void Construct(StatsMeteorSO statsMeteorSo, CharacterHealth characterHealth)
+        private ExplosionFactory _explosionFactory;
+        private DiContainer _container;
+        
+        [Inject] public void Construct(
+            StatsMeteorSO statsMeteorSo,
+            CharacterHealth characterHealth,
+            DiContainer container,
+            ExplosionFactory explosionFactory)
         {
             StatsMeteorSo = statsMeteorSo;
             _characterHealth = characterHealth;
-
+            _container = container;
+            _explosionFactory = explosionFactory;
             Initialize();
         }
 
@@ -33,7 +41,6 @@ namespace _Develop.Scripts.Enemy.Meteors
                 characterHealth.TakeDamage(Damage);
                 Destroy(gameObject);
             }
-            
         }
 
         public void TakeDamage(float damage)
@@ -55,7 +62,10 @@ namespace _Develop.Scripts.Enemy.Meteors
 
         public void SequenceDeath()
         {
+            Explosion explosion = _explosionFactory.Create(transform.position, transform.rotation);
+
             Destroy(gameObject);
+            
         }
 
         public abstract void OnBecameInvisible();
