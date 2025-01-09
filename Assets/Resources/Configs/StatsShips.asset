@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67c6fda2535a2ea48b35ab4787065ef3, type: 3}
   m_Name: StatsShips
   m_EditorClassIdentifier: 
-  <PurpleHealth>k__BackingField: 4
+  <PurpleHealth>k__BackingField: 1
   <PurpleDamage>k__BackingField: 2
   <PurpleMaxSpeed>k__BackingField: 7
   <PurpleMinSpeed>k__BackingField: 4
-  <PurpleFireRate>k__BackingField: 0
-  <GreenHealth>k__BackingField: 0
-  <GreenDamage>k__BackingField: 0
-  <GreenMaxSpeed>k__BackingField: 0
-  <GreenMinSpeed>k__BackingField: 0
+  <PurpleFireRate>k__BackingField: 0.4
+  <GreenHealth>k__BackingField: 2
+  <GreenDamage>k__BackingField: 2
+  <GreenMaxSpeed>k__BackingField: 15
+  <GreenMinSpeed>k__BackingField: 12

@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace _Develop.Scripts.Configs
 {
-    [CreateAssetMenu(menuName = "Configs/ScriptableObject/StatsShips")]
+    [CreateAssetMenu(menuName = "Configs/ScriptableObject/Ships/StatsShips", fileName = "StatsShips")]
     public class StatsShipsSO : ScriptableObject
     {
         [field: Header("PurpleShip")]

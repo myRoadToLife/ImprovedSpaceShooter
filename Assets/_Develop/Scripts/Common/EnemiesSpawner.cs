@@ -11,7 +11,7 @@ namespace _Develop.Scripts.Common
         [SerializeField] private float _timeSpawnMeteor = 1.5f;
 
         [Header("Ships")] [SerializeField] private Enemy.Enemy[] _shipsPrefabs;
-        [SerializeField] private float _timeSpawnShips = 2f;
+        [SerializeField] private float _timeSpawnShips = 1f;
 
         private DiContainer _container;
         private Camera _camera;
@@ -28,10 +28,10 @@ namespace _Develop.Scripts.Common
             _camera = camera;
 
             StartCoroutine(SetBorders());
-            StartCoroutine(SpawnMeteors());
+            StartCoroutine(SpawnEnemies());
         }
 
-        IEnumerator SpawnMeteors()
+        IEnumerator SpawnEnemies()
         {
             while (_isSpawning)
             {

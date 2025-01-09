@@ -10,6 +10,7 @@ using Zenject;
 namespace _Develop.Scripts.Enemy
 {
     [RequireComponent(typeof(Rigidbody2D))]
+    [RequireComponent(typeof(MeshRenderer))]
     public abstract class Enemy : MonoBehaviour, IDamageable, ISequence
     {
         public StatsMeteorSO StatsMeteorSo { get; private set; }
@@ -23,6 +24,11 @@ namespace _Develop.Scripts.Enemy
         private ExplosionFactory _explosionFactory;
         private DiContainer _container;
 
+        private void Start()
+        {
+            Initialize();
+        }
+
         [Inject] public void Construct(
             StatsMeteorSO statsMeteorSo,
             StatsShipsSO statsShipsSo,
@@ -35,11 +41,6 @@ namespace _Develop.Scripts.Enemy
             _characterHealth = characterHealth;
             _container = container;
             _explosionFactory = explosionFactory;
-        }
-
-        private void Start()
-        {
-            Initialize();
         }
 
         private void OnTriggerEnter2D(Collider2D other)

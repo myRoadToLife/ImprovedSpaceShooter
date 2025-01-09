@@ -1,6 +1,5 @@
 using System.Collections;
 using _Develop.Scripts.Common;
-using _Develop.Scripts.Configs;
 using _Develop.Scripts.Enemy.Ships.Projectiles;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -12,8 +11,6 @@ namespace _Develop.Scripts.Enemy.Ships
         [SerializeField] private Transform _leftPointShoot;
         [SerializeField] private Transform _rightPointShoot;
         [SerializeField] private PurpleBullet _purpleBulletPrefab;
-
-        [SerializeField] private float _intervalShoot = 0.7f;
         
         private float _moveSpeed;
         private bool _isShooting = true;
@@ -28,7 +25,7 @@ namespace _Develop.Scripts.Enemy.Ships
         {
             while (_isShooting)
             {
-                yield return new WaitForSeconds(_intervalShoot);
+                yield return new WaitForSeconds(StatsShipsSo.PurpleFireRate);
                 Instantiate(_purpleBulletPrefab, _leftPointShoot.position, Quaternion.identity);
                 Instantiate(_purpleBulletPrefab, _rightPointShoot.position, Quaternion.identity);
             }

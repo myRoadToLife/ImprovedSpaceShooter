@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace _Develop.Scripts.Configs
 {
-    [CreateAssetMenu(menuName = "Configs/ScriptableObject/StatsMeteors")]
+    [CreateAssetMenu(menuName = "Configs/ScriptableObject/Meteor/StatsMeteors", fileName = "StatsMeteors")]
     public class StatsMeteorSO : ScriptableObject
     {
         [field: Header("WeakMeteor")]

@@ -1,4 +1,5 @@
 using System.Collections;
+using _Develop.Scripts.Configs;
 using UnityEngine;
 using Zenject;
 
@@ -9,26 +10,24 @@ namespace _Develop.Scripts.Character
         [SerializeField] private LaserBullet _laserBulletPrefab;
         [SerializeField] private Transform _basicShootingPoint;
 
-        [SerializeField] private float _intervalShoot;
-
+        private CharacterStatsSO _stats;
         private DiContainer _container;
-
         private bool _isCanShoot = true;
 
-        [Inject] public void Construct(DiContainer container)
+        [Inject] public void Construct(DiContainer container, CharacterStatsSO stats)
         {
             _container = container;
+            _stats = stats;
             
             StartCoroutine(IntervalShooting());
         }
-        
 
         IEnumerator IntervalShooting()
         {
             while (_isCanShoot)
             {
-                yield return new WaitForSeconds(_intervalShoot);
-
+                yield return new WaitForSeconds(_stats.IntervalShoot);
+                
                 Shoot();
             }
         }

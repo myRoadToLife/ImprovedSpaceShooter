@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60e6fc8a17ee4a9bb62bf44a28093a2a, type: 3}
   m_Name: LaserBullet
   m_EditorClassIdentifier: 
-  <Damage>k__BackingField: 2
+  <Damage>k__BackingField: 1.5
   <Speed>k__BackingField: 15

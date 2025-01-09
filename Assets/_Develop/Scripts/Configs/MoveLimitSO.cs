@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace _Develop.Scripts.Configs
 {
-    [CreateAssetMenu(menuName = "Configs/ScriptableObject/RestrictionMovement")]
+    [CreateAssetMenu(menuName = "Configs/ScriptableObject/CameraSettings/RestrictionMovement", fileName = "RestrictionMovementValue")]
     public class MoveLimitSO : ScriptableObject
     {
         [SerializeField] private float _maxLeftValue;
