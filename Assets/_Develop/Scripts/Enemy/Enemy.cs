@@ -1,3 +1,4 @@
+using System;
 using _Develop.Scripts.Character;
 using _Develop.Scripts.Common;
 using _Develop.Scripts.Common.Interfaces;
@@ -6,29 +7,38 @@ using _Develop.Scripts.VFX;
 using UnityEngine;
 using Zenject;
 
-namespace _Develop.Scripts.Enemy.Meteors
+namespace _Develop.Scripts.Enemy
 {
     [RequireComponent(typeof(Rigidbody2D))]
-    public abstract class Meteor : MonoBehaviour, IDamageable, ISequence
+    public abstract class Enemy : MonoBehaviour, IDamageable, ISequence
     {
         public StatsMeteorSO StatsMeteorSo { get; private set; }
+        public StatsShipsSO StatsShipsSo { get; private set; }
         public float Damage { get; protected set; }
         public Health HealthValue { get; protected set; }
-        
+
+        [field: SerializeField] public Rigidbody2D Rb2D { get; private set; }
+
         private CharacterHealth _characterHealth;
         private ExplosionFactory _explosionFactory;
         private DiContainer _container;
-        
+
         [Inject] public void Construct(
             StatsMeteorSO statsMeteorSo,
+            StatsShipsSO statsShipsSo,
             CharacterHealth characterHealth,
             DiContainer container,
             ExplosionFactory explosionFactory)
         {
             StatsMeteorSo = statsMeteorSo;
+            StatsShipsSo = statsShipsSo;
             _characterHealth = characterHealth;
             _container = container;
             _explosionFactory = explosionFactory;
+        }
+
+        private void Start()
+        {
             Initialize();
         }
 
@@ -45,8 +55,8 @@ namespace _Develop.Scripts.Enemy.Meteors
 
         public void TakeDamage(float damage)
         {
-            HealthValue.CurrentHealth = (byte)Mathf.Clamp(HealthValue.CurrentHealth - damage, 0, HealthValue.CurrentHealth);
-            
+            HealthValue.CurrentHealth = Mathf.Clamp(HealthValue.CurrentHealth - damage, 0, HealthValue.CurrentHealth);
+
             SequenceHurt();
 
             if (HealthValue.CurrentHealth == 0)
@@ -65,11 +75,10 @@ namespace _Develop.Scripts.Enemy.Meteors
             Explosion explosion = _explosionFactory.Create(transform.position, transform.rotation);
 
             Destroy(gameObject);
-            
         }
 
-        public abstract void OnBecameInvisible();
+        public abstract void Initialize();
 
-        protected abstract void Initialize();
+        public abstract void OnBecameInvisible();
     }
 }

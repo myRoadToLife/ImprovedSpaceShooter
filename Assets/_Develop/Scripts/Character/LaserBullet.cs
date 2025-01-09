@@ -8,7 +8,7 @@ namespace _Develop.Scripts.Character
     public class LaserBullet : MonoBehaviour
     {
         private LaserBulletSO _config;
-        private Meteor _meteor;
+        private Enemy.Enemy _enemy;
 
         [Inject] private void Construct(LaserBulletSO config)
         {
@@ -22,11 +22,11 @@ namespace _Develop.Scripts.Character
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            Meteor meteor = collision.GetComponent<Meteor>();
+            Enemy.Enemy enemy = collision.GetComponent<Enemy.Enemy>();
 
-            if (meteor != null)
+            if (enemy != null)
             {
-                meteor.TakeDamage(_config.Damage);
+                enemy.TakeDamage(_config.Damage);
             }
 
             Destroy(gameObject);

@@ -11,10 +11,8 @@ namespace _Develop.Scripts.Installers
     public sealed class SceneInstaller : MonoInstaller
     {
         [SerializeField] private Explosion _explosionPrefab;
+        [SerializeField] private Animator _animator;
         
-        private CharacterHealth _characterHealth;
-        private HealthBarView _healthBarView;
-
         public override void InstallBindings()
         {
             MoveLimitSO moveLimitSo = Resources.Load<MoveLimitSO>("Configs/MoveLimit");
@@ -22,6 +20,9 @@ namespace _Develop.Scripts.Installers
 
             StatsMeteorSO statsMeteorSo = Resources.Load<StatsMeteorSO>("Configs/MeteorStats");
             Container.Bind<StatsMeteorSO>().FromInstance(statsMeteorSo).AsSingle();
+            
+            StatsShipsSO statsShipsSO = Resources.Load<StatsShipsSO>("Configs/StatsShips");
+            Container.Bind<StatsShipsSO>().FromInstance(statsShipsSO).AsSingle();
 
             LaserBulletSO laserBulletSo = Resources.Load<LaserBulletSO>("Configs/LaserBullet");
             Container.Bind<LaserBulletSO>().FromInstance(laserBulletSo).AsSingle();
@@ -29,15 +30,18 @@ namespace _Develop.Scripts.Installers
             CharacterStatsSO characterStatsSO = Resources.Load<CharacterStatsSO>("Configs/CharacterStats");
             Container.Bind<CharacterStatsSO>().FromInstance(characterStatsSO).AsSingle();
             
-            Container.Bind<Camera>().FromInstance(Camera.main).AsSingle();
+            Container.Bind<Camera>().FromComponentInHierarchy().AsSingle();
 
-            Container.Bind<CharacterHealth>().FromInstance(_characterHealth).AsSingle();
+            Container.Bind<CharacterHealth>().FromComponentInHierarchy().AsSingle();
 
-            Container.Bind<HealthBarView>().FromComponentInHierarchy(_healthBarView).AsSingle();
+            Container.Bind<HealthBarView>().FromComponentInHierarchy().AsSingle();
 
             Container.BindFactory<Vector3, Quaternion, Explosion, ExplosionFactory>()
                 .FromComponentInNewPrefab(_explosionPrefab)
                 .AsTransient();
+            
+            Container.Bind<Animator>().FromInstance(_animator).AsSingle();
+            Container.Bind<CharacterAnimation>().AsSingle();
         }
     }
 }

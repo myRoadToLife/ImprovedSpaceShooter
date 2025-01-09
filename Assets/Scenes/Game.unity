@@ -252,6 +252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _explosionPrefab: {fileID: 7537076200604591617, guid: c8365339cbd04ed488506dcaf292eed3, type: 3}
+  _animator: {fileID: 1744535593}
 --- !u!1 &261793916
 GameObject:
   m_ObjectHideFlags: 0
@@ -1414,7 +1415,7 @@ GameObject:
   - component: {fileID: 1095517597}
   - component: {fileID: 1095517596}
   m_Layer: 0
-  m_Name: SpawnerMeteor
+  m_Name: SpawnerEnemies
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1436,7 +1437,10 @@ MonoBehaviour:
   - {fileID: 3511512911183807400, guid: 1541c2ed785ee0049bbbee5271fee868, type: 3}
   - {fileID: 5302624176483774124, guid: de86a801b014cd946884d0e1681ceb9c, type: 3}
   - {fileID: 8813452486990306165, guid: 50c7d6a21a73dae44a9301e778346c6c, type: 3}
-  _timeForSpawn: 1.5
+  _timeSpawnMeteor: 1.5
+  _shipsPrefabs:
+  - {fileID: -6941010556634756393, guid: dc7cad49d6b60014f956a4ae81e43bd5, type: 3}
+  _timeSpawnShips: 1
 --- !u!4 &1095517597
 Transform:
   m_ObjectHideFlags: 0
@@ -2133,10 +2137,10 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.6, y: 1.6}
+    newSize: {x: 2.56, y: 2.56}
+    adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
@@ -2357,6 +2361,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1744535592}
   - component: {fileID: 1744535591}
+  - component: {fileID: 1744535593}
   m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
@@ -2426,11 +2431,32 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1523933046}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1744535593
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744535590}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 946ec65182cdd0d4b979db692d51039e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1810511626
 GameObject:
   m_ObjectHideFlags: 0

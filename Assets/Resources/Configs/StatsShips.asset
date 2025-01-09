@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c6fda2535a2ea48b35ab4787065ef3, type: 3}
+  m_Name: StatsShips
+  m_EditorClassIdentifier: 
+  <PurpleHealth>k__BackingField: 4
+  <PurpleDamage>k__BackingField: 2
+  <PurpleMaxSpeed>k__BackingField: 7
+  <PurpleMinSpeed>k__BackingField: 4
+  <PurpleFireRate>k__BackingField: 0
+  <GreenHealth>k__BackingField: 0
+  <GreenDamage>k__BackingField: 0
+  <GreenMaxSpeed>k__BackingField: 0
+  <GreenMinSpeed>k__BackingField: 0
