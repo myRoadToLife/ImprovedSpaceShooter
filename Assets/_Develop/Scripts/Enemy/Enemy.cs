@@ -1,5 +1,6 @@
 using System;
 using _Develop.Scripts.Character;
+using _Develop.Scripts.Character.MonoBeh;
 using _Develop.Scripts.Common;
 using _Develop.Scripts.Common.Interfaces;
 using _Develop.Scripts.Configs;

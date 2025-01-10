@@ -1,10 +1,8 @@
-using System;
 using _Develop.Scripts.Configs;
-using _Develop.Scripts.Enemy.Meteors;
 using UnityEngine;
 using Zenject;
 
-namespace _Develop.Scripts.Character
+namespace _Develop.Scripts.Character.MonoBeh
 {
     [RequireComponent(typeof(Rigidbody2D))]
     public class LaserBullet : MonoBehaviour

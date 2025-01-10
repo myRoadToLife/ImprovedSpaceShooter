@@ -1,4 +1,4 @@
-using _Develop.Scripts.Character;
+using _Develop.Scripts.Character.MonoBeh;
 using UnityEngine;
 
 namespace _Develop.Scripts.Enemy.Ships.Projectiles

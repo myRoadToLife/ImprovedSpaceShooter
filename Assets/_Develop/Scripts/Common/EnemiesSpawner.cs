@@ -16,6 +16,9 @@ namespace _Develop.Scripts.Common
         private DiContainer _container;
         private Camera _camera;
 
+        private Coroutine _spawnEnemies;
+        private Coroutine _setBorders;
+
         private float _maxLeftPosX;
         private float _maxRightPosX;
         private float _maxPosY;
@@ -27,8 +30,8 @@ namespace _Develop.Scripts.Common
             _container = container;
             _camera = camera;
 
-            StartCoroutine(SetBorders());
-            StartCoroutine(SpawnEnemies());
+            _setBorders = StartCoroutine(SetBorders());
+            _spawnEnemies = StartCoroutine(SpawnEnemies());
         }
 
         IEnumerator SpawnEnemies()

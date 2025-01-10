@@ -3,7 +3,7 @@ using _Develop.Scripts.Configs;
 using UnityEngine;
 using Zenject;
 
-namespace _Develop.Scripts.Character
+namespace _Develop.Scripts.Character.MonoBeh
 {
     public class CharacterShooting : MonoBehaviour
     {

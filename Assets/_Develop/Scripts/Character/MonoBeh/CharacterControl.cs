@@ -6,23 +6,23 @@ using Zenject;
 using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
 using TouchPhase = UnityEngine.InputSystem.TouchPhase;
 
-namespace _Develop.Scripts.Character
+namespace _Develop.Scripts.Character.MonoBeh
 {
-    public class CharacterControl : MonoBehaviour, ICharacter
+    public class CharacterControl : MonoBehaviour
     {
         private MoveLimitSO _moveLimitSo;
         private Camera _mainCamera;
         private Vector3 _offsetPosition;
         private Coroutine _setBorders;
-        
+
         [Inject] public void Construct(MoveLimitSO moveLimitSo, Camera mainCamera)
         {
             _moveLimitSo = moveLimitSo;
             _mainCamera = mainCamera;
-            
+
             _setBorders = StartCoroutine(SetBorders());
         }
-        
+
         private void Update()
         {
             HandleTouchInput();
