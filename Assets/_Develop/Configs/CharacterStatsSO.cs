@@ -6,6 +6,8 @@ namespace _Develop.Configs
     public class CharacterStatsSO : ScriptableObject
     {
         [field: SerializeField] public float Health { get; private set; }
+        
+        [field: SerializeField] public float MoveSpeed { get; private set; }
         [field: SerializeField] public float IntervalShoot { get; private set; } = 0.4f;
     }
 }

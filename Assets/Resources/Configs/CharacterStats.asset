@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: CharacterStats
   m_EditorClassIdentifier: 
   <Health>k__BackingField: 8
+  <MoveSpeed>k__BackingField: 10
+  <IntervalShoot>k__BackingField: 0.4
