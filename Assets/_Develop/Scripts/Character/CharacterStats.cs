@@ -4,7 +4,7 @@ namespace _Develop.Scripts.Character
 {
     public class CharacterStats
     {
-        public float MaxHealth { get; private set; }
+        public float MaxHealth { get; }
         public float CurrentHealth { get; private set; }
 
         public CharacterStats(float maxHealth)

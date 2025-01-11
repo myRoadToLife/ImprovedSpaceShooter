@@ -1,7 +1,7 @@
+using _Develop.Configs;
 using _Develop.Scripts.Character;
 using _Develop.Scripts.Character.MonoBeh;
 using _Develop.Scripts.Common;
-using _Develop.Scripts.Configs;
 using _Develop.Scripts.UI;
 using _Develop.Scripts.VFX;
 using UnityEngine;

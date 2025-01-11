@@ -17,6 +17,7 @@ namespace _Develop.Scripts.Common
         }
 
         public void SetGameOver(bool value) => _isGameOver = value;
+        
         public bool IsGameOver() => _isGameOver;
 
         public async Task FinishGame()

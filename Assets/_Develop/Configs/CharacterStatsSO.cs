@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace _Develop.Scripts.Configs
+namespace _Develop.Configs
 {
     [CreateAssetMenu(menuName = "Configs/ScriptableObject/Character/CharacterStats", fileName = "CharacterStats")]
     public class CharacterStatsSO : ScriptableObject

@@ -12,15 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dff5452adc248658f02306416c4a454, type: 3}
   m_Name: MeteorStats
   m_EditorClassIdentifier: 
-  <WeakHealth>k__BackingField: 2
-  <WeakDamage>k__BackingField: 1
-  <WeakMaxSpeed>k__BackingField: 7
-  <WeakMinSpeed>k__BackingField: 10
-  <DangerousHealth>k__BackingField: 6
-  <DangerousDamage>k__BackingField: 2
-  <DangerousMaxSpeed>k__BackingField: 5
-  <DangerousMinSpeed>k__BackingField: 10
-  <TerribleHealth>k__BackingField: 5
-  <TerribleDamage>k__BackingField: 4
-  <TerribleMaxSpeed>k__BackingField: 3
-  <TerribleMinSpeed>k__BackingField: 7
+  _weakMeteor:
+    Health: 2
+    Damage: 1
+    MaxSpeed: 10
+    MinSpeed: 7
+  _dangerousMeteor:
+    Health: 5
+    Damage: 2
+    MaxSpeed: 10
+    MinSpeed: 5
+  _terribleMeteor:
+    Health: 5
+    Damage: 4
+    MaxSpeed: 7
+    MinSpeed: 3

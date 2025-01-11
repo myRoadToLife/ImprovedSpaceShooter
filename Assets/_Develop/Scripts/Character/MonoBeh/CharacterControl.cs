@@ -1,5 +1,5 @@
 using System.Collections;
-using _Develop.Scripts.Configs;
+using _Develop.Configs;
 using UnityEngine;
 using UnityEngine.InputSystem.EnhancedTouch;
 using Zenject;
@@ -15,17 +15,17 @@ namespace _Develop.Scripts.Character.MonoBeh
         private Vector3 _offsetPosition;
         private Coroutine _setBorders;
 
+        private void Update()
+        {
+            HandleTouchInput();
+        }
+
         [Inject] public void Construct(MoveLimitSO moveLimitSo, Camera mainCamera)
         {
             _moveLimitSo = moveLimitSo;
             _mainCamera = mainCamera;
 
             _setBorders = StartCoroutine(SetBorders());
-        }
-
-        private void Update()
-        {
-            HandleTouchInput();
         }
 
         private void HandleTouchInput()
@@ -48,9 +48,9 @@ namespace _Develop.Scripts.Character.MonoBeh
 
                     transform.position = new Vector3(
                         Mathf.Clamp(transform.position.x,
-                            _moveLimitSo.GetMaxLeft(), _moveLimitSo.GetMaxRight()),
+                            _moveLimitSo.MaxLeft, _moveLimitSo.MaxRight),
                         Mathf.Clamp(transform.position.y,
-                            _moveLimitSo.GetMaxDown(), _moveLimitSo.GetMaxUp()), 0);
+                            _moveLimitSo.MaxDown, _moveLimitSo.MaxUp), 0);
 
                     break;
             }

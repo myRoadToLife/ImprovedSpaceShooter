@@ -1,4 +1,4 @@
-using _Develop.Scripts.Configs;
+using _Develop.Configs;
 using UnityEngine;
 using Zenject;
 

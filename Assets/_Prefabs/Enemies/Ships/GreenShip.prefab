@@ -160,6 +160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Rb2D>k__BackingField: {fileID: 4096265379071772238}
+  _statsShip: {fileID: 11400000, guid: 35c254a1239891b44a1cfb03c03cdef0, type: 2}
 --- !u!23 &4618235325604402549
 MeshRenderer:
   m_ObjectHideFlags: 0

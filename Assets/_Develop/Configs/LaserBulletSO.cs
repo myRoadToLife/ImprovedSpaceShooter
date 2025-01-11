@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace _Develop.Scripts.Configs
+namespace _Develop.Configs
 {
     [CreateAssetMenu(menuName = "Configs/ScriptableObject/Bullet/LaserBullet", fileName = "LaserBulletStats")]
     public class LaserBulletSO : ScriptableObject

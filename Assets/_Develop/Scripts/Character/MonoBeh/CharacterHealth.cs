@@ -1,5 +1,5 @@
+using _Develop.Configs;
 using _Develop.Scripts.Common;
-using _Develop.Scripts.Configs;
 using _Develop.Scripts.UI;
 using _Develop.Scripts.VFX;
 using UnityEngine;
@@ -35,7 +35,6 @@ namespace _Develop.Scripts.Character.MonoBeh
         {
             _stats.TakeDamage(damage);
             _healthBarHandler.UpdateHealthBar(_stats.CurrentHealth, _stats.MaxHealth);
-            _animationHandler.PlayDamageAnimation();
 
             if (_stats.IsDead)
             {
@@ -44,6 +43,10 @@ namespace _Develop.Scripts.Character.MonoBeh
 
                 Explosion explosion = _explosionFactory.Create(transform.position, Quaternion.identity);
                 Destroy(gameObject);
+            }
+            else
+            {
+                _animationHandler.PlayDamageAnimation();
             }
         }
     }

@@ -22,9 +22,7 @@ namespace _Develop.Scripts.Common
         private float _maxLeftPosX;
         private float _maxRightPosX;
         private float _maxPosY;
-
-        private bool _isSpawning = true;
-
+        
         [Inject] public void Construct(DiContainer container, Camera camera)
         {
             _container = container;
@@ -36,32 +34,24 @@ namespace _Develop.Scripts.Common
 
         IEnumerator SpawnEnemies()
         {
-            while (_isSpawning)
+            while (true)
             {
                 yield return new WaitForSeconds(_timeSpawnMeteor);
-                Enemy.Enemy meteor = MeteorSetSpawn(out Vector3 meteorPos, out Quaternion meteorRot);
+                Enemy.Enemy meteor = SetSpawn(_meteorsPrefabs, out Vector3 meteorPos, out Quaternion meteorRot);
                 _container.InstantiatePrefab(meteor, meteorPos, meteorRot, null);
 
                 yield return new WaitForSeconds(_timeSpawnShips);
-                Enemy.Enemy ship = ShipSetSpawn(out Vector3 shipPos, out Quaternion shipRot);
+                Enemy.Enemy ship = SetSpawn(_shipsPrefabs, out Vector3 shipPos, out Quaternion shipRot);
                 _container.InstantiatePrefab(ship, shipPos, shipRot, null);
             }
         }
 
-        private Enemy.Enemy MeteorSetSpawn(out Vector3 position, out Quaternion meteorRot)
+        private Enemy.Enemy SetSpawn(Enemy.Enemy[] prefabs, out Vector3 position, out Quaternion rotation)
         {
-            Enemy.Enemy meteor = _meteorsPrefabs[Random.Range(0, _meteorsPrefabs.Length)];
+            Enemy.Enemy enemy = prefabs[Random.Range(0, prefabs.Length)];
             position = new Vector3(Random.Range(_maxLeftPosX, _maxRightPosX), _maxPosY, -5);
-            meteorRot = Quaternion.identity;
-            return meteor;
-        }
-
-        private Enemy.Enemy ShipSetSpawn(out Vector3 position, out Quaternion shipRot)
-        {
-            Enemy.Enemy ship = _shipsPrefabs[Random.Range(0, _shipsPrefabs.Length)];
-            position = new Vector3(Random.Range(_maxLeftPosX, _maxRightPosX), _maxPosY, -5);
-            shipRot = Quaternion.identity;
-            return ship;
+            rotation = (enemy == _meteorsPrefabs[0]) ? transform.rotation : Quaternion.identity;
+            return enemy;
         }
 
         private IEnumerator SetBorders()

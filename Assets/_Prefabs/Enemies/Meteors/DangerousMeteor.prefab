@@ -50,6 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Rb2D>k__BackingField: {fileID: -4348893498404203443}
   _rotateSpeed: 70
+  _statsMeteor: {fileID: 11400000, guid: 4515f85587d41f642bbd744efd58502a, type: 2}
 --- !u!50 &-4348893498404203443
 Rigidbody2D:
   serializedVersion: 4

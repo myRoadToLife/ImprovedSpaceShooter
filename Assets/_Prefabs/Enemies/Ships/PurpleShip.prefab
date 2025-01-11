@@ -202,7 +202,7 @@ MonoBehaviour:
   _leftPointShoot: {fileID: 6278467039604456622}
   _rightPointShoot: {fileID: 1840268402358736783}
   _purpleBulletPrefab: {fileID: 5460309775810172146, guid: 3659991bd49685148b4402842f53a7de, type: 3}
-  _intervalShoot: 0.5
+  _statsShip: {fileID: 11400000, guid: 35c254a1239891b44a1cfb03c03cdef0, type: 2}
 --- !u!23 &4832488954678023279
 MeshRenderer:
   m_ObjectHideFlags: 0
