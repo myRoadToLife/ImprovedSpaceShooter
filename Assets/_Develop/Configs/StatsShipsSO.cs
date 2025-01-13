@@ -17,11 +17,32 @@ namespace _Develop.Configs
 
         [Serializable] public class ShipStat
         {
-            public float Health;
-            public float Damage;
-            public float MinSpeed;
-            public float MaxSpeed;
-            public float FireRate;
+            [field: SerializeField, Range(0f, 100f)]
+            public float Health { get; private set; }
+
+            [field: SerializeField, Range(0f, 100f)]
+            public float Damage { get; private set; }
+
+            [field: SerializeField, Range(0f, 100f)]
+            public float MinSpeed { get; private set; }
+
+            [field: SerializeField, Range(0f, 100f)]
+            public float MaxSpeed { get; private set; }
+
+            [field: SerializeField, Range(0f, 100f)]
+            public float FireRate { get; private set; }
+
+            public void Validate()
+            {
+                MaxSpeed = Mathf.Max(MaxSpeed, MinSpeed + 1f);
+                MinSpeed = Mathf.Min(MinSpeed, MaxSpeed - 1f);
+            }
+        }
+
+        private void OnValidate()
+        {
+            _purpleShip.Validate();
+            _greenShip.Validate();
         }
 
         public ShipStat GetShipStats(ShipType type)

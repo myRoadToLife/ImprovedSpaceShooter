@@ -5,10 +5,10 @@ namespace _Develop.Configs
     [CreateAssetMenu(menuName = "Configs/ScriptableObject/CameraSettings/RestrictionMovement", fileName = "RestrictionMovementValue")]
     public class MoveLimitSO : ScriptableObject
     {
-        [SerializeField] private float _maxLeftValue;
-        [SerializeField] private float _maxRightValue;
-        [SerializeField] private float _maxDownValue;
-        [SerializeField] private float _maxUpValue;
+        [SerializeField, Range(0f, 1f)] private float _maxLeftValue;
+        [SerializeField, Range(0f, 1f)] private float _maxRightValue;
+        [SerializeField, Range(0f, 1f)] private float _maxDownValue;
+        [SerializeField, Range(0f, 1f)] private float _maxUpValue;
 
         private float _maxLeft;
         private float _maxRight;

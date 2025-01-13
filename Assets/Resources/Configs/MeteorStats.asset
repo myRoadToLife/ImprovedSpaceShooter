@@ -13,17 +13,17 @@ MonoBehaviour:
   m_Name: MeteorStats
   m_EditorClassIdentifier: 
   _weakMeteor:
-    Health: 2
-    Damage: 1
-    MaxSpeed: 10
-    MinSpeed: 7
+    <Health>k__BackingField: 2
+    <Damage>k__BackingField: 1
+    <MinSpeed>k__BackingField: 7
+    <MaxSpeed>k__BackingField: 10
   _dangerousMeteor:
-    Health: 5
-    Damage: 2
-    MaxSpeed: 10
-    MinSpeed: 5
+    <Health>k__BackingField: 5
+    <Damage>k__BackingField: 2
+    <MinSpeed>k__BackingField: 5
+    <MaxSpeed>k__BackingField: 10
   _terribleMeteor:
-    Health: 5
-    Damage: 4
-    MaxSpeed: 7
-    MinSpeed: 3
+    <Health>k__BackingField: 5
+    <Damage>k__BackingField: 4
+    <MinSpeed>k__BackingField: 3
+    <MaxSpeed>k__BackingField: 7

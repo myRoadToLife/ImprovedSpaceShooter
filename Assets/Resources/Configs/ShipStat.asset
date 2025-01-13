@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: ShipStat
   m_EditorClassIdentifier: 
   _purpleShip:
-    Health: 1
-    Damage: 2
-    MinSpeed: 4
-    MaxSpeed: 7
-    FireRate: 0.4
+    <Health>k__BackingField: 1
+    <Damage>k__BackingField: 2
+    <MinSpeed>k__BackingField: 4
+    <MaxSpeed>k__BackingField: 7
+    <FireRate>k__BackingField: 0.4
   _greenShip:
-    Health: 2
-    Damage: 2
-    MinSpeed: 12
-    MaxSpeed: 15
-    FireRate: 0
+    <Health>k__BackingField: 2
+    <Damage>k__BackingField: 2
+    <MinSpeed>k__BackingField: 12
+    <MaxSpeed>k__BackingField: 15
+    <FireRate>k__BackingField: 0
