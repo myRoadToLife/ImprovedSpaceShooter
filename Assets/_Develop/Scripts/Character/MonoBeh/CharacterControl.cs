@@ -10,68 +10,60 @@ namespace _Develop.Scripts.Character.MonoBeh
 {
     public class CharacterControl : MonoBehaviour
     {
-        private MoveLimitSO _moveLimitSo;
+        private MoveLimitSO _moveLimit;
         private Camera _mainCamera;
-        private Vector2 _targetPosition;
-        CharacterStatsSO _stats;
-        private bool _isMoving;
+        private Vector3 _offsetPosition;
+        private Coroutine _setBorders;
         
-        [Inject] public void Construct(MoveLimitSO moveLimitSo, Camera mainCamera, CharacterStatsSO stats)
+        [Inject] public void Construct(MoveLimitSO moveLimit)
         {
-            _moveLimitSo = moveLimitSo;
-            _mainCamera = mainCamera;
-            _stats = stats;
-
-            StartCoroutine(SetBorders());
+            _moveLimit = moveLimit;
+        }
+        
+        private void Start()
+        {
+            _mainCamera = Camera.main;
+            _moveLimit.Initialize(_mainCamera);
+            _setBorders = StartCoroutine(SetBorders());
         }
 
         private void Update()
         {
             HandleTouchInput();
-            MoveTowardsTarget();
         }
 
         private void HandleTouchInput()
         {
-            if (Touch.activeTouches.Count == 0)
+            if (Touch.fingers[0].isActive == false)
                 return;
 
-            Touch touch = Touch.activeTouches[0];
+            Touch myTouch = Touch.activeTouches[0];
+            Vector3 touchPosition = myTouch.screenPosition;
+            touchPosition = _mainCamera.ScreenToWorldPoint(touchPosition);
 
-            if (touch.phase == TouchPhase.Began || touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Stationary)
+            switch (Touch.activeTouches[0].phase)
             {
-                Vector3 touchPosition = _mainCamera.ScreenToWorldPoint(touch.screenPosition);
-                touchPosition.z = 0;
-
-                _targetPosition = new Vector2(
-                    Mathf.Clamp(touchPosition.x, _moveLimitSo.MaxLeft, _moveLimitSo.MaxRight),
-                    Mathf.Clamp(touchPosition.y, _moveLimitSo.MaxDown, _moveLimitSo.MaxUp)
-                );
-
-                _isMoving = true;
-            }
-        }
-
-        private void MoveTowardsTarget()
-        {
-            if (!_isMoving)
-                return;
-
-            transform.position = Vector3.MoveTowards(transform.position, _targetPosition, _stats.MoveSpeed * Time.deltaTime);
-
-            if (Vector2.Distance(transform.position, _targetPosition) < 0.01f)
-            {
-                transform.position = _targetPosition;
-                _isMoving = false;
+                case TouchPhase.Began:
+                    _offsetPosition = touchPosition - transform.position;
+                    break;
+                case TouchPhase.Moved:
+                case TouchPhase.Stationary:
+                    transform.position = new Vector3(touchPosition.x - _offsetPosition.x, touchPosition.y - _offsetPosition.y, 0);
+                    
+                    transform.position = new Vector3(
+                        Mathf.Clamp(transform.position.x,
+                            _moveLimit.MaxLeft, _moveLimit.MaxRight),
+                        Mathf.Clamp(transform.position.y,
+                            _moveLimit.MaxDown, _moveLimit.MaxUp), 0);
+                    break;
             }
         }
 
         private IEnumerator SetBorders()
         {
-            yield return new WaitForSeconds(0.5f);
-            _moveLimitSo.Initialize(_mainCamera);
+            yield return new WaitForEndOfFrame();
+            _moveLimit.Initialize(_mainCamera);
         }
-
         private void OnEnable() => EnhancedTouchSupport.Enable();
 
         private void OnDisable() => EnhancedTouchSupport.Disable();

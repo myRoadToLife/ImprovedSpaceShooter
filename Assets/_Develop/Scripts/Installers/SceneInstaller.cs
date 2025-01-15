@@ -53,6 +53,8 @@ namespace _Develop.Scripts.Installers
             
             Container.Bind<WinCondition>().AsSingle().NonLazy();
             
+            Container.Bind<FadeCanvas>().FromComponentInHierarchy().AsSingle();
+            
         }
     }
 }

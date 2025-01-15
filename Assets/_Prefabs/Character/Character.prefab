@@ -118,7 +118,6 @@ GameObject:
   - component: {fileID: 7581463374706379680}
   - component: {fileID: 725708948928504270}
   - component: {fileID: 8105151126726967973}
-  - component: {fileID: 2630472226812571394}
   - component: {fileID: 333479219784418702}
   m_Layer: 0
   m_Name: Character
@@ -170,7 +169,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _laserBulletPrefab: {fileID: 1804277199266048475, guid: 5393092235fc5644e9990fbe0fffdc0f, type: 3}
   _basicShootingPoint: {fileID: 2452336389252076267}
-  _intervalShoot: 0.4
 --- !u!114 &8105151126726967973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,33 +181,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34077ae3d3c84627bc317168b29105df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!50 &2630472226812571394
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6893442084943087635}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!60 &333479219784418702
 PolygonCollider2D:
   m_ObjectHideFlags: 0
